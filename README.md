@@ -1,6 +1,15 @@
 # SepoPark.github.io
-Exploring theoretical physics, mathematics, and computational science. This website documents my research projects, notes, and ongoing attempts to understand how nature works.
 
-remote_theme: pages-themes/architect@v0.2.0
-plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
+Personal research website for Joseph Park, focused on theoretical physics,
+mathematics, and computational science.
+
+The site is intentionally build-free: GitHub Pages serves `index.html` and the
+local assets directly.
+
+## Preview locally
+
+```bash
+python3 -m http.server 4173
+```
+
+Then open `http://localhost:4173`.
