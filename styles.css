@@ -254,7 +254,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .about-body { padding-top: 2rem; font-size: 1.05rem; }
 .about-body p { margin: 0 0 1.5rem; }
 .connect-row { display: flex; align-items: end; justify-content: space-between; gap: 3rem; }
-.connect-links { display: flex; gap: 1.5rem; padding-bottom: 0.5rem; color: var(--muted); font-size: 0.86rem; font-weight: 700; }
+.connect-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.75rem 1.5rem; padding-bottom: 0.5rem; color: var(--muted); font-size: 0.86rem; font-weight: 700; }
 .site-footer { display: flex; justify-content: space-between; gap: 2rem; padding: 2rem 7vw; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.75rem; }
 .site-footer p { margin: 0; }
 
@@ -279,6 +279,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   .project-body { grid-template-columns: 1fr; gap: 0.75rem; }
   .project-meta { flex-wrap: wrap; }
   .connect-row, .site-footer { align-items: flex-start; flex-direction: column; }
+  .connect-links { justify-content: flex-start; }
 }
 
 @media (prefers-reduced-motion: reduce) {
