@@ -1,0 +1,180 @@
+.note-hero {
+  position: relative;
+  display: grid;
+  min-height: 88svh;
+  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+  align-items: end;
+  gap: 6vw;
+  overflow: hidden;
+  padding: 10rem 7vw 6rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.note-hero-copy, .note-hero-model { position: relative; z-index: 2; }
+.back-link { display: inline-block; margin-bottom: 4rem; color: var(--muted); font-size: 0.78rem; font-weight: 650; }
+.back-link:hover { color: var(--accent); }
+.note-hero h1 {
+  max-width: 64rem;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(4rem, 8.5vw, 9rem);
+  font-weight: 400;
+  letter-spacing: -0.07em;
+  line-height: 0.84;
+}
+.note-hero h1 span { color: var(--warm); font-style: italic; }
+.note-hero-copy > p:last-child { max-width: 44rem; margin: 2.5rem 0 0; color: var(--muted); font-size: clamp(1rem, 1.45vw, 1.2rem); }
+.note-hero-model {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 1fr auto;
+  gap: 0.75rem 1rem;
+  align-self: center;
+  padding: 2rem;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 3vw, 3rem);
+}
+.note-hero-model span { grid-column: 1; }
+.note-hero-model strong { grid-column: 2; color: var(--muted); font-weight: 400; }
+.note-hero-model .model-accent { color: var(--accent); }
+
+.note-section, .experiment-section, .takeaway {
+  width: min(86vw, 1280px);
+  margin: 0 auto;
+  padding: clamp(5.5rem, 9vw, 9rem) 0;
+}
+.note-section { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(20rem, 1.15fr); gap: 8vw; }
+.note-section h2, .experiment-heading h2, .takeaway blockquote {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 5.5vw, 6rem);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.96;
+}
+.idea-copy { max-width: 44rem; color: var(--muted); font-size: 1.05rem; }
+.idea-copy p { margin: 0 0 1.5rem; }
+.display-equation {
+  overflow-x: auto;
+  padding: 2rem 0;
+  border-block: 1px solid var(--line);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: clamp(1.65rem, 3vw, 3rem);
+  white-space: nowrap;
+}
+
+.experiment-section { width: min(94vw, 1480px); border-top: 1px solid var(--line); }
+.experiment-heading { display: grid; grid-template-columns: 1fr; align-items: end; gap: 1.5rem; width: min(91.5%, 1280px); margin: 0 auto 3.5rem; }
+.experiment-heading > p { margin: 0; color: var(--muted); }
+.lab-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  border: 1px solid var(--line);
+  background: var(--panel);
+  box-shadow: 0 2rem 6rem -4rem var(--shadow);
+}
+.plot-panel { min-width: 0; padding: clamp(1.25rem, 3vw, 2.5rem); border-bottom: 1px solid var(--line); }
+.plot-heading { display: flex; align-items: start; justify-content: space-between; gap: 2rem; }
+.plot-heading h3, .functional-copy h3 { margin: 0; font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 3rem); font-weight: 400; letter-spacing: -0.035em; line-height: 1; }
+.plot-label { margin: 0 0 0.45rem; color: var(--accent); font-size: 0.66rem; font-weight: 750; letter-spacing: 0.14em; text-transform: uppercase; }
+.legend { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.5rem 1rem; color: var(--muted); font-size: 0.7rem; }
+.legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.legend i { display: inline-block; width: 1.5rem; border-top: 2px solid; }
+.legend-base { border-color: var(--warm) !important; border-top-style: dashed !important; }
+.legend-varied { border-color: var(--accent) !important; }
+#curve-plot, #functional-plot { display: block; width: 100%; height: auto; margin-top: 1.5rem; touch-action: none; }
+.plot-help { margin: 0.6rem 0 0; color: var(--muted); font-size: 0.72rem; }
+
+.control-panel { display: grid; min-width: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 3rem; padding: clamp(1.4rem, 3vw, 2.5rem); }
+.control-group label { display: block; margin-bottom: 0.55rem; color: var(--muted); font-size: 0.72rem; font-weight: 750; letter-spacing: 0.08em; text-transform: uppercase; }
+.control-group select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--bg-soft);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.86rem;
+}
+.range-label { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.range-label output { color: var(--accent); font-family: var(--serif); font-size: 1.4rem; }
+input[type="range"] { width: 100%; accent-color: var(--accent); }
+.range-ends { display: flex; justify-content: space-between; color: var(--muted); font-size: 0.65rem; }
+.button-stack { display: grid; grid-column: 1 / -1; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.55rem; }
+.lab-button {
+  min-height: 3rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.lab-button:hover { border-color: var(--accent); background: var(--accent-soft); }
+.lab-button-primary { border-color: var(--accent); background: var(--accent); color: var(--bg); }
+.lab-button-primary:hover { background: color-mix(in srgb, var(--accent) 85%, white); }
+.readout { display: grid; grid-column: 1 / -1; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; padding-block: 1.25rem; border-block: 1px solid var(--line); }
+.readout div { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+.readout span { color: var(--muted); font-size: 0.78rem; }
+.readout strong { font-family: var(--serif); font-size: 1.45rem; font-weight: 400; }
+.status-copy { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: 0.78rem; }
+
+.functional-panel {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.65fr) minmax(0, 1.35fr);
+  align-items: center;
+  gap: 5vw;
+  margin-top: 1.25rem;
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  border: 1px solid var(--line);
+}
+.functional-copy p:last-child { max-width: 30rem; color: var(--muted); }
+
+.meaning-section { border-top: 1px solid var(--line); }
+.meaning-grid { display: grid; gap: 2.5rem; }
+.meaning-grid article { padding-top: 1.25rem; border-top: 1px solid var(--line); }
+.meaning-grid span { color: var(--accent); font-family: var(--serif); }
+.meaning-grid h3 { margin: 0.75rem 0 0.5rem; font-family: var(--serif); font-size: 1.65rem; font-weight: 400; }
+.meaning-grid p { margin: 0; color: var(--muted); }
+.takeaway { border-top: 1px solid var(--line); text-align: center; }
+.takeaway blockquote { max-width: 70rem; margin-inline: auto; }
+.takeaway > p:not(.section-kicker) { max-width: 46rem; margin: 2rem auto; color: var(--muted); }
+
+.plot-grid { stroke: var(--line); stroke-width: 1; }
+.plot-axis { stroke: var(--muted); stroke-width: 1.25; }
+.plot-axis-label { fill: var(--muted); font-family: var(--sans); font-size: 12px; }
+.base-path { fill: none; stroke: var(--warm); stroke-width: 3; stroke-dasharray: 8 8; opacity: 0.75; }
+.varied-path { fill: none; stroke: var(--accent); stroke-width: 4; }
+.variation-band { fill: var(--accent-soft); stroke: none; }
+.control-point { fill: var(--bg); stroke: var(--warm); stroke-width: 3; cursor: ns-resize; }
+.control-point:focus { outline: none; stroke: var(--accent); stroke-width: 5; }
+.fixed-point { fill: var(--warm); stroke: var(--bg); stroke-width: 3; }
+.functional-line { fill: none; stroke: var(--accent); stroke-width: 3; }
+.functional-guide { stroke: var(--line); stroke-width: 1; stroke-dasharray: 5 6; }
+.functional-dot { fill: var(--warm); stroke: var(--bg); stroke-width: 3; }
+
+@media (max-width: 1180px) {
+  .note-hero { grid-template-columns: 1fr; }
+  .note-hero-model { max-width: 32rem; margin-top: 1rem; }
+  .note-section, .experiment-heading, .functional-panel { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .note-hero { min-height: auto; padding: 8.5rem 1.25rem 4rem; }
+  .note-hero h1 { font-size: clamp(3.4rem, 18vw, 5.4rem); }
+  .back-link { margin-bottom: 3rem; }
+  .note-hero-model { padding: 1.25rem; }
+  .note-section, .takeaway { width: auto; margin-inline: 1.25rem; }
+  .experiment-section { width: auto; margin-inline: 1.25rem; }
+  .experiment-heading { width: auto; }
+  .plot-heading { display: block; }
+  .legend { justify-content: flex-start; margin-top: 1rem; }
+  .lab-shell, .functional-panel { margin-inline: -1.25rem; border-inline: 0; }
+  .control-panel, .button-stack, .readout { grid-template-columns: 1fr; }
+}

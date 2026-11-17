@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="An interactive introduction to calculus of variations by Joseph Park." />
+    <meta name="theme-color" content="#07110f" />
+    <title>Shake a function — Joseph Park</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="note.css" />
+    <script src="../../script.js" defer></script>
+    <script src="note.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to the note</a>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="../../" aria-label="Joseph Park, home">
+        <span class="brand-mark" aria-hidden="true">JP</span>
+        <span class="brand-name">Joseph Park</span>
+      </a>
+      <nav class="nav" aria-label="Note navigation">
+        <a href="#idea">Idea</a>
+        <a href="#experiment">Experiment</a>
+        <a href="#meaning">Meaning</a>
+        <a href="../../#notes">All notes</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.91-.11-1.35A7 7 0 0 1 12 3Z" /></svg>
+      </button>
+    </header>
+
+    <main id="main">
+      <section class="note-hero" id="top" aria-labelledby="note-title">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="note-hero-copy">
+          <a class="back-link" href="../../#notes">← Interactive physics notes</a>
+          <p class="eyebrow">Calculus of variations · Interactive note 01</p>
+          <h1 id="note-title">Shake a function,<br /><span>not a number.</span></h1>
+          <p>
+            Ordinary calculus asks what happens when a number moves a little. Calculus of
+            variations asks what happens when an entire function changes shape.
+          </p>
+        </div>
+        <div class="note-hero-model" aria-label="A function being varied">
+          <span>y<sub>a</sub>(x)</span>
+          <strong>=</strong>
+          <span>y<sub>0</sub>(x)</span>
+          <strong>+</strong>
+          <span class="model-accent">a η(x)</span>
+        </div>
+      </section>
+
+      <section class="note-section idea-section" id="idea" aria-labelledby="idea-title">
+        <div>
+          <p class="section-kicker">The central move</p>
+          <h2 id="idea-title">Replace a tiny step with a tiny reshaping.</h2>
+        </div>
+        <div class="idea-copy">
+          <p>
+            A functional is a rule that takes a whole function as its input and returns one number.
+            Here that number is the length of a curve between x = −1 and x = 1:
+          </p>
+          <p class="display-equation" aria-label="J of y equals the integral from minus one to one of the square root of one plus y prime squared, d x">
+            J[y] = ∫<sub>−1</sub><sup>1</sup> √(1 + y′(x)<sup>2</sup>) dx
+          </p>
+          <p>
+            To test a curve y<sub>0</sub>, we add a small variation aη(x). The variation vanishes at
+            both endpoints, so the endpoints stay fixed while the middle of the curve “shakes.”
+          </p>
+        </div>
+      </section>
+
+      <section class="experiment-section" id="experiment" aria-labelledby="experiment-title">
+        <div class="experiment-heading">
+          <div>
+            <p class="section-kicker">Try it yourself</p>
+            <h2 id="experiment-title">Reshape, then shake.</h2>
+          </div>
+          <p>Drag the interior points to define y<sub>0</sub>(x). Then move a or press Shake to explore nearby functions.</p>
+        </div>
+
+        <div class="lab-shell">
+          <div class="plot-panel">
+            <div class="plot-heading">
+              <div>
+                <p class="plot-label">Function space</p>
+                <h3>Your curve y<sub>a</sub>(x)</h3>
+              </div>
+              <div class="legend" aria-label="Plot legend">
+                <span><i class="legend-base"></i> base y<sub>0</sub></span>
+                <span><i class="legend-varied"></i> varied y<sub>a</sub></span>
+              </div>
+            </div>
+            <svg id="curve-plot" viewBox="0 0 760 430" role="img" aria-labelledby="curve-title curve-description">
+              <title id="curve-title">Interactive graph of a base function and its variation</title>
+              <desc id="curve-description">Drag the control points to reshape the base curve. The varied curve changes with parameter a.</desc>
+            </svg>
+            <p class="plot-help">Drag a point, or focus it and use the arrow keys. The endpoints are fixed.</p>
+          </div>
+
+          <aside class="control-panel" aria-label="Experiment controls">
+            <div class="control-group">
+              <label for="variation-shape">Variation η(x)</label>
+              <select id="variation-shape">
+                <option value="sin1">sin(πx) — your example</option>
+                <option value="sin2">sin(2πx)</option>
+                <option value="arch">cos(πx/2)</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <div class="range-label"><label for="amplitude">Variation parameter a</label><output id="amplitude-output" for="amplitude">0.05</output></div>
+              <input id="amplitude" type="range" min="-0.75" max="0.75" step="0.01" value="0.05" />
+              <div class="range-ends" aria-hidden="true"><span>−0.75</span><span>0</span><span>+0.75</span></div>
+            </div>
+
+            <div class="button-stack">
+              <button class="lab-button lab-button-primary" id="shake-button" type="button">Shake the function</button>
+              <button class="lab-button" id="straight-button" type="button">Reset to straight line</button>
+              <button class="lab-button" id="curve-button" type="button">Try a curved function</button>
+            </div>
+
+            <div class="readout" aria-live="polite">
+              <div><span>J[y<sub>0</sub>]</span><strong id="base-j">2.000</strong></div>
+              <div><span>J[y<sub>a</sub>]</span><strong id="varied-j">2.012</strong></div>
+              <div><span>ΔJ</span><strong id="delta-j">+0.012</strong></div>
+            </div>
+            <p class="status-copy" id="experiment-status">The function is slightly shaken away from the straight line.</p>
+          </aside>
+        </div>
+
+        <div class="functional-panel">
+          <div class="functional-copy">
+            <p class="plot-label">The landscape around your function</p>
+            <h3>One shake direction, many nearby functions</h3>
+            <p>
+              Every point on this graph is a whole curve. The horizontal axis chooses the amount
+              of shaking; the vertical axis records the resulting value of J.
+            </p>
+          </div>
+          <svg id="functional-plot" viewBox="0 0 620 300" role="img" aria-labelledby="functional-title functional-description">
+            <title id="functional-title">The functional J plotted against variation parameter a</title>
+            <desc id="functional-description">A curve showing how arc length changes as the function is varied.</desc>
+          </svg>
+        </div>
+      </section>
+
+      <section class="note-section meaning-section" id="meaning" aria-labelledby="meaning-title">
+        <div>
+          <p class="section-kicker">What this means</p>
+          <h2 id="meaning-title">A stationary function feels flat in every direction.</h2>
+        </div>
+        <div class="meaning-grid">
+          <article>
+            <span>01</span>
+            <h3>Choose a trial function</h3>
+            <p>Start with y<sub>0</sub>(x). A function is now the “point” whose neighborhood we want to inspect.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Choose a direction</h3>
+            <p>η(x) is one direction in function space. Multiplying it by a controls how far we move.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Watch the functional</h3>
+            <p>If the first-order change vanishes for every allowed η, the function is stationary: δJ = 0.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="takeaway">
+        <p class="section-kicker">Takeaway</p>
+        <blockquote>Calculus of variations is ordinary calculus performed on a space whose points are entire functions.</blockquote>
+        <p>
+          This experiment uses arc length because it is visible. The same idea produces geodesics,
+          Fermat’s principle, the Euler–Lagrange equation, and the principle of stationary action.
+        </p>
+        <a class="button button-primary" href="../../#notes">Return to all notes</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span data-year>2026</span> Joseph Park</p>
+      <p>Interactive physics note 01.</p>
+    </footer>
+  </body>
+</html>

@@ -233,6 +233,19 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   transition: transform 180ms ease, border-color 180ms ease;
 }
 .note-card:hover { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); transform: translateY(-5px); }
+.note-card-live {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr);
+  grid-template-rows: auto auto 1fr auto;
+  grid-column: 1 / -1;
+  column-gap: 1.5rem;
+  min-height: 20rem;
+  background: linear-gradient(120deg, var(--accent-soft), var(--panel) 55%);
+}
+.note-card-live .note-symbol { grid-row: 1 / 5; margin-bottom: 0; }
+.note-card-live .note-label, .note-card-live h3, .note-card-live > p, .note-card-live .note-foot { grid-column: 2; }
+.note-card-live h3 { font-size: clamp(2.4rem, 5vw, 4.5rem); }
+.note-card-live .note-foot { color: var(--accent); }
 .note-symbol {
   display: grid;
   width: 4.5rem;
@@ -269,6 +282,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   .note-grid { grid-template-columns: 1fr; }
   .note-card { min-height: auto; }
   .note-symbol { margin-bottom: 3rem; }
+  .note-card-live { display: block; }
+  .note-card-live .note-symbol { margin-bottom: 3rem; }
 }
 
 @media (max-width: 560px) {
